@@ -1,1 +1,4 @@
 env/
+.venv/
+__pycache__/
+workspace/pre_trained_models/
