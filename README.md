@@ -93,8 +93,8 @@ retrained.** The numbers above are all from the 2023 model.
 3. Augmentations that break the habit. 2023 already flipped and cropped; the fix
    adds `random_pad_image` (bottles small and off-centre) and hue, saturation and
    brightness jitter (closer to water).
-4. Relative paths. The 2023 file pointed at `/home/fh1m/tmp/…`, a folder on a
-   laptop that no longer exists, and fine-tuned from its own earlier `ckpt-5`.
+4. Relative paths. The 2023 file pointed at `/home/fh1m/tmp/…`, a folder on the 2023
+   laptop, and fine-tuned from its own earlier `ckpt-5`.
 
 ## Run it
 
