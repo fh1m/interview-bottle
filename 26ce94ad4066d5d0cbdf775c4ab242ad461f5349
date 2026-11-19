@@ -1,0 +1,24 @@
+.gitignore
+  h_f1b9066eb9899c 2-4
+README-2023.md
+  h_f1b9066eb9899c 1-27
+README.md
+  h_f1b9066eb9899c 1,3,5-8,10,12-13,15-18,20,22,24-121
+firstbottle/evaluate.py
+  h_f1b9066eb9899c 1-190
+requirements.txt
+  h_f1b9066eb9899c 1-4
+workspace/models/ssd_mobilenet/pipeline.fixed.config
+  h_f1b9066eb9899c 1-2,5,140,149-175,180-183,190-191,195,199,201,207,210,214
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "26ce94ad4066d5d0cbdf775c4ab242ad461f5349",
+  "prompts": {},
+  "humans": {
+    "h_f1b9066eb9899c": {
+      "author": "fh1m <fahim.2002.faisal@gmail.com>"
+    }
+  }
+}
