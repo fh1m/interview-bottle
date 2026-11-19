@@ -149,7 +149,7 @@ def main() -> None:
         ax.spines[sp].set_visible(False)
     fig.tight_layout(); fig.savefig(ASSETS / "ap_vs_depth.png"); plt.close(fig)
 
-    # contact sheet: one test image, dry and at 3 m, with the top box
+    # Four validation images; captions sit outside the unchanged image area.
     sheet = []
     for img, gt in val[:4]:
         row = []
@@ -161,12 +161,15 @@ def main() -> None:
             vis = np.ascontiguousarray(x[..., ::-1])
             if s > 0.3:
                 cv2.rectangle(vis, (int(b[1] * w), int(b[0] * h)), (int(b[3] * w), int(b[2] * h)), (0, 255, 0), 3)
-            cv2.putText(vis, f"{d} m  score {s:.2f}", (8, 28), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
-            row.append(cv2.resize(vis, (320, 320)))
+            panel = np.full((352, 320, 3), 22, dtype=np.uint8)
+            panel[32:] = cv2.resize(vis, (320, 320))
+            label = f"{'Dry' if d == 0 else '3 m modeled path'} | score {s:.2f}"
+            cv2.putText(panel, label, (8, 21), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (242, 244, 248), 1, cv2.LINE_AA)
+            row.append(panel)
         sheet.append(np.hstack(row))
-    cv2.imwrite(str(ASSETS / "dry_vs_3m.png"), np.vstack([np.hstack(sheet[:2]), np.hstack(sheet[2:4])]))
+    cv2.imwrite(str(ASSETS / "dry_vs_3m_readable.png"), np.vstack([np.hstack(sheet[:2]), np.hstack(sheet[2:4])]))
 
-    # The habit: how much of the frame does the top box cover, vs the true box?
+    # Dry validation coverage: predicted and annotated box areas.
     area = lambda r: (r[2] - r[0]) * (r[3] - r[1])
     pred_cov, true_cov = [], []
     for img, gt in val:

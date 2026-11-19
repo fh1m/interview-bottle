@@ -5,6 +5,15 @@
   "execution": "CPU; CUDA_VISIBLE_DEVICES was empty; two intra-op threads and one inter-op thread",
   "evaluator": "firstbottle/evaluate.py",
   "evaluator_sha256_before_docstring_correction": "9a610f9db1eeb4387e6f2153d2dfaca6ad4574449adf424339b88b7557fbb592",
+  "readable_contact_sheet": {
+    "renderer_sha256": "bfdd3a891f4d7b72bcf4101c373cb4fc892acd32e2c9c797cf0f54e71b36bb7e",
+    "file": "assets/dry_vs_3m_readable.png",
+    "sha256": "e223fb5607e906ece29e81c947eb10549fcf77a21b30ef594ebe9787aeb40ecd",
+    "legacy_file": "assets/dry_vs_3m.png",
+    "legacy_sha256_unchanged": "568c4ae0cbfbaaca4211933d2727dfbd3611bb5bf3b2765f00ab655b6782f0fd",
+    "change": "Place captions in dark bands outside the image area; preserve the original sheet separately.",
+    "fresh_inference_stdout_identical": true
+  },
   "input_files": {
     "workspace/data/train.tfrecord": "4c7eda48b5a8a73f943aa380043d59166d9021d82bf899ba18d4e6f3fbd7656e",
     "workspace/data/test.tfrecord": "4c7eda48b5a8a73f943aa380043d59166d9021d82bf899ba18d4e6f3fbd7656e",
