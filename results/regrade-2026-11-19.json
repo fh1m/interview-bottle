@@ -1,0 +1,93 @@
+{
+  "verified_at": "2026-11-19T11:17:01.004713+00:00",
+  "python": "3.12.13",
+  "tensorflow": "2.21.0",
+  "execution": "CPU; CUDA_VISIBLE_DEVICES was empty; two intra-op threads and one inter-op thread",
+  "evaluator": "firstbottle/evaluate.py",
+  "evaluator_sha256_before_docstring_correction": "9a610f9db1eeb4387e6f2153d2dfaca6ad4574449adf424339b88b7557fbb592",
+  "input_files": {
+    "workspace/data/train.tfrecord": "4c7eda48b5a8a73f943aa380043d59166d9021d82bf899ba18d4e6f3fbd7656e",
+    "workspace/data/test.tfrecord": "4c7eda48b5a8a73f943aa380043d59166d9021d82bf899ba18d4e6f3fbd7656e",
+    "workspace/data/validation.tfrecord": "8826584dc2d7bb543a4a21fe50abac492578a96aefd013fc573c115b9a5e646a"
+  },
+  "split_audit": {
+    "python": "3.12.13",
+    "train": 15,
+    "validation": 10,
+    "test": 15,
+    "validation_exact_pixel_matches_in_train": 0,
+    "test_exact_pixel_matches_in_train": 15
+  },
+  "validation_ap_voc_all_point_iou_0_5": [
+    {
+      "modeled_water_path_m": 0,
+      "ap": 0.405
+    },
+    {
+      "modeled_water_path_m": 1,
+      "ap": 0.538
+    },
+    {
+      "modeled_water_path_m": 2,
+      "ap": 0.372
+    },
+    {
+      "modeled_water_path_m": 3,
+      "ap": 0.224
+    },
+    {
+      "modeled_water_path_m": 5,
+      "ap": 0.16
+    },
+    {
+      "modeled_water_path_m": 8,
+      "ap": 0.109
+    }
+  ],
+  "training_log_and_checkpoint_audit": [
+    {
+      "event_file": "train/events.out.tfevents.1701597594.Home.51806.0.v2",
+      "loss_samples": 42,
+      "max_logged_loss_step": 4200
+    },
+    {
+      "event_file": "train/events.out.tfevents.1701604313.Home.126976.0.v2",
+      "loss_samples": 0,
+      "max_logged_loss_step": null
+    },
+    {
+      "event_file": "train/train/events.out.tfevents.1701604460.Home.131378.0.v2",
+      "loss_samples": 0,
+      "max_logged_loss_step": null
+    },
+    {
+      "event_file": "train/train/events.out.tfevents.1701604686.Home.137373.0.v2",
+      "loss_samples": 0,
+      "max_logged_loss_step": null
+    },
+    {
+      "event_file": "train/train/events.out.tfevents.1701604730.Home.138382.0.v2",
+      "loss_samples": 12,
+      "max_logged_loss_step": 1200
+    },
+    {
+      "checkpoint": "workspace/models/ssd_mobilenet/ckpt-5",
+      "step_variables": {
+        "step/.ATTRIBUTES/VARIABLE_VALUE": "4000"
+      }
+    },
+    {
+      "checkpoint": "workspace/exported_models/ssd_mobilenet/checkpoint/ckpt-0",
+      "step_variables": {}
+    }
+  ],
+  "controlled_box_example": {
+    "ground_truth_area_fraction": 0.31,
+    "prediction_area_fraction": 0.72,
+    "geometry": "ground-truth square fully inside centered prediction square; not an observed validation-image IoU",
+    "iou_using_original_function": 0.4305555549575619
+  },
+  "model_retrained": false,
+  "stdout": "TensorFlow 2.21.0\ntraining: 4200 steps logged of 50000 configured\nlearning rate at last log: 0.796\nregularization loss: 0.320 -> 0.934\nlogged eval mAP@0.5 at step 4000: 0.506 (validation, 10 images)\n'test' split: 15 of 15 images are byte-identical to training images; AP@0.5 = 1.000\nAP@0.5 validation at 0 m: 0.405\nAP@0.5 validation at 1 m: 0.538\nAP@0.5 validation at 2 m: 0.372\nAP@0.5 validation at 3 m: 0.224\nAP@0.5 validation at 5 m: 0.160\nAP@0.5 validation at 8 m: 0.109\ntop box covers 72% of the frame (median); the real bottle covers 31% (validation), 51% in training\n",
+  "plot_outputs": "Written outside the repository during verification; existing committed images were not overwritten."
+}

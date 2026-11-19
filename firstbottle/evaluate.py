@@ -1,9 +1,10 @@
 """Re-examine the 2023 interview model with the data it was trained on.
 
   1. The training run, read back from its own TensorBoard event files.
-  2. AP@0.5 on the 15-image test split it never trained on.
-  3. The same test split, sunk through the water model from fh1m/green-at-depth:
-     would a bottle detector trained on desk photos have survived a pool?
+  2. VOC-style all-point AP@0.5 on the 10-image validation split; the duplicated
+     15-image test split is audited separately as training-image performance.
+  3. The same validation images under the RGB water-path transform from
+     fh1m/green-at-depth: a controlled domain stress test, not a pool trial.
 
     python -m firstbottle.evaluate     # prints the numbers, writes assets/*.png
 """
