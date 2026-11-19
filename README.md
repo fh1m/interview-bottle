@@ -22,6 +22,19 @@ The original README, with all seven screenshots, is kept in
 the 2023 workspace left behind: the TensorBoard logs, the exported model and
 the TFRecords.
 
+<details>
+<summary>Inspect every training and validation record</summary>
+
+![All 25 decoded records and their stored annotations](assets/dataset_splits.png)
+
+The first three rows are training, the last two validation. Teal boxes are
+stored annotations, not detector output. This view preserves the mixed
+backgrounds, mostly upright training bottles and the horizontal validation
+bottle. It does not turn those conditions into an isolated causal test.
+Photographs come from the original Kaggle collection, not my camera.
+
+</details>
+
 ## What the logs remember
 
 ![Training losses and learning rate, read back from the 2023 event files](assets/training_2023.png)
@@ -114,7 +127,11 @@ evidence that adding water generally helps this detector: transforms can
 change ranking and box decisions, and no uncertainty bounds are reported.
 The [original sweep plot](assets/ap_vs_depth.png) is retained separately.
 
-![Four validation bottles, dry and at 3 m](assets/dry_vs_3m.png)
+![Four validation bottles with high-contrast labels outside the photographs](assets/dry_vs_3m_readable.png)
+
+Caption bands are outside the image area, so white labels no longer disappear
+against white product backgrounds. This is a re-render of the same model and
+inputs, not retraining. The [original sheet](assets/dry_vs_3m.png) is preserved.
 
 The red CLEAR label darkens and changes colour under the transform. These
 remain product photographs, not underwater recordings. The code operates on
@@ -148,6 +165,7 @@ Python 3.12 was verified with TensorFlow 2.21.0 on CPU:
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 .venv/bin/python -m firstbottle.evaluate  # prints results and rewrites assets/*.png
+.venv/bin/python -m firstbottle.data_gallery  # all records and annotations; no detector load
 ```
 
 The dated [verification receipt](results/regrade-2026-11-19.json) records a
